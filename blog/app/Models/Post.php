@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    public function categories()
+    {
+        return $this->belongsTo('App\Models\Category','category_id');
+    }
     use HasFactory;
+    // protected $fillable = ['name','description'];
+      protected $guarded = [];
 }

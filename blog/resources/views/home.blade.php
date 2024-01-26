@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div>
+           
             <a href="/posts/create" class="btn btn-success">New Post</a>
         </div><br>
         <div class="card">
@@ -30,3 +31,4 @@
         </div>
     </div>
 @endsection
+

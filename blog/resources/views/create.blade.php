@@ -22,12 +22,20 @@
             @csrf
             <div class="form-group">
                 <label for="exampleInputEmail1">Name</label>
-                <input type="text" class="form-control" name="name" placeholder="Enter name" value="{{old('name')}}">
+                <input type="text" class="form-control" name="name" placeholder="Enter name" >
             </div>
            
             <div class="form-group">
                 <label for="exampleInputEmail1">Description</label>
-                <textarea class="form-control" name="description" placeholder="Enter Desc">{{old('description')}}</textarea>
+                <textarea class="form-control" name="description" placeholder="Enter Desc"></textarea>
+            </div>
+              <div class="form-group">
+                <select name="category_id" id="" class="form-control">
+                    <option value="">Select Category</option>
+                    @foreach($categories as $cat)
+                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                    @endforeach
+                </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
