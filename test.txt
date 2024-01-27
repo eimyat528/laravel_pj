@@ -1,1 +1,13 @@
  cd -> route path
+
+//
+
+ <!-- <a href="{{ route('root')}}" class="btn btn-success">go to root path</a> -->
+            <!-- <a href="{{ route('post.show',['post' => $post->id ])}}" class="btn btn-success">go to root path</a> -->
+
+///
+
+One to many relationship//
+
+category -> many post
+hasMany  -> belongsTos

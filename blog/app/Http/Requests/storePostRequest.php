@@ -26,7 +26,8 @@ class storePostRequest extends FormRequest
         return [
             'name' => 'required|unique:posts|max:255',
             'description' => 'required|max:255',
-            'category' => 'required',
+            'category_id' => 'required',
+           
         ];
     }
 
@@ -35,6 +36,7 @@ class storePostRequest extends FormRequest
         return [
             'name.required' => 'A name is required',
             'description.required' => 'A description is required',
+            'category_id.required' => 'A category is required',
         ];
     }
 }

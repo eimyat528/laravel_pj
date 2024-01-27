@@ -32,7 +32,7 @@
                 <select name="category_id" id="" class="form-control">
                     <option value="">Select Category</option>
                     @foreach($categories as $cat)
-                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                        <option value="{{$cat->id}}" {{ $cat->id == $post->category_id ? 'selected' : ''}} >{{$cat->name}}</option>
                     @endforeach
                 </select>
             </div>
