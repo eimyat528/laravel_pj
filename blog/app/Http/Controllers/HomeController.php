@@ -10,6 +10,13 @@ use App\Http\Requests\storePostRequest;
 
 class HomeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth') ;
+        // $this->middleware('auth') ->only('create','index');
+        // $this->middleware('auth') ->except('create','index');
+    }
     /**
      * Display a listing of the resource.
      *

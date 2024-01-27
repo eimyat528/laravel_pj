@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -44,3 +45,6 @@ Route::resource('posts', HomeController::class);
 //     return view('about',compact('data'));
 // });
 
+Route::get('logout', [AuthController::class,'logout']);
+
+Route::get ('/dashboard',[HomeController::class, 'index']);
