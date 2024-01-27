@@ -11,3 +11,7 @@ One to many relationship//
 
 category -> many post
 hasMany  -> belongsTos
+
+laravel/jetstream ^2.9
+
+need to know about Gate

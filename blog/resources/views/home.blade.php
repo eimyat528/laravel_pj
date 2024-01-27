@@ -5,8 +5,9 @@
         <div>
            
             <a href="/posts/create" class="btn btn-success">New Post</a>
-            <a href="logout" class="btn btn-primary">Logout</a>
-           
+            <a href="/logout" class="btn btn-primary">Logout</a>
+            <h4 style="float:right">{{Auth::user()->name}}</h4>
+
         </div><br>
         <div class="card">
         <div class="card-header" style="text-align:center">
