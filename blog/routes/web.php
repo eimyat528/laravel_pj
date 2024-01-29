@@ -1,6 +1,11 @@
 <?php
 
+use App\Test;
+use App\Container;
+use App\TestFacade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 
@@ -17,6 +22,14 @@ use App\Http\Controllers\HomeController;
 
 
 //  Route::get('/', [HomeController::class, 'testroot']) -> name('root');
+Route::get('/',function(){
+//  return View::make('welcome');
+// return Request::input('name');
+//  return TestFacade::execute();
+dd(TestFacade::execute());
+
+
+});
 Route::resource('posts', HomeController::class);
 
 

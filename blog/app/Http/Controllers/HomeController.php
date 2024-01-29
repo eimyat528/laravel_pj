@@ -24,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
+        // $collection = collect([1,2,3]) ->map(function (string $number){
+        //     return $number >2 ;
+        // });
+        // dd($collection);
+        // $posts = Post::pluck('name');
+         // dd($posts);
         $data = Post::where('user_id',auth()->id()) ->orderBy('id','desc')->get();
         return view('home',compact('data'));
     }
