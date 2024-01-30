@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Mail\PostStored;
 use App\Models\Category;
+use App\Mail\PostCreated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\storePostRequest;
 
@@ -22,7 +26,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $collection = collect([1,2,3]) ->map(function (string $number){
         //     return $number >2 ;
@@ -30,7 +34,14 @@ class HomeController extends Controller
         // dd($collection);
         // $posts = Post::pluck('name');
          // dd($posts);
+        // dd(config('ap.info.third'));
+
+        // Mail ::raw('Hello World',function($msg){
+        //     $msg ->to('hlaing@gmail.com')->subject('AP Index Function');
+        // });
+
         $data = Post::where('user_id',auth()->id()) ->orderBy('id','desc')->get();
+        // $request->session()->flash('status', 'Task was successful!');
         return view('home',compact('data'));
     }
 
@@ -48,7 +59,7 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request 
      * @return \Illuminate\Http\Response
      */
     public function store(storePostRequest $request)
@@ -58,9 +69,9 @@ class HomeController extends Controller
         // $post->name = $request->name;
         // $post->description = $request->description;
         // $post->save();
-        Post::create($validated);
-
-        return redirect('/posts');
+        $post = Post::create($validated +['user_id' =>Auth::user()->id]);
+        // Mail::to('hlaing@gmail.com')->send(new PostCreated());
+        return redirect('/posts') -> with('status',config('ap.message.created'));
     }
 
     /**
