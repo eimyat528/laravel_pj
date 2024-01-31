@@ -15,12 +15,12 @@ class Post extends Model
     }
     use HasFactory;
     // protected $fillable = ['name','description'];
-      protected $guarded = [];
+     // protected $guarded = [];
 
-      protected static function booted()
-      {
-          static::created(function($post) {
-              Mail::to('hlaing@gmail.com')->send(new PostStored($post));
-          });
-      }
+    //   protected static function booted()
+    //   {
+    //       static::created(function($post) {
+    //           Mail::to('hlaing@gmail.com')->send(new PostStored($post));
+    //       });
+    //   }
 }

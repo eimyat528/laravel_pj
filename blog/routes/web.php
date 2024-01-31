@@ -23,10 +23,10 @@ use App\Http\Controllers\HomeController;
 
 //  Route::get('/', [HomeController::class, 'testroot']) -> name('root');
 Route::get('/',function(){
-//  return View::make('welcome');
+ return View::make('welcome');
 // return Request::input('name');
 //  return TestFacade::execute();
-dd(TestFacade::execute());
+// dd(TestFacade::execute());
 
 
 });
