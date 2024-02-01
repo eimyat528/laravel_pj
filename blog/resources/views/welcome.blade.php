@@ -10,4 +10,4 @@
    <livewire:counter>
    @livewireScripts
 </body>
-</html>
+</html>  
